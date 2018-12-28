@@ -50,8 +50,8 @@ class Pacman(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         pygame.time.set_timer(31, 150) # создаем событие изменения костюма с ID=31, которое потом обрабатываем
-        self.costumes = itertools.cycle((pygame.image.load("images\pacman\yellow\open\medium.png"), pygame.image.load(r"images\pacman\yellow\close.png"))) # итер-объект, который возвращает то открытый, то закрытый рот
-        self.image = pygame.image.load(r"images\pacman\yellow\open\medium.png")
+        self.costumes = itertools.cycle((pygame.image.load("images/pacman/yellow/open/medium.png"), pygame.image.load(r"images/pacman/yellow/close.png"))) # итер-объект, который возвращает то открытый, то закрытый рот
+        self.image = pygame.image.load(r"images/pacman/yellow/open/medium.png")
         self.rect = self.image.get_rect()
         self.next_costume()
         self.vel = [0,0]
@@ -62,32 +62,32 @@ class Pacman(pygame.sprite.Sprite):
             self.vel[0] = -5
             self.vel[1] = 0
             if not self.rotated:
-                self.costumes = itertools.cycle((pygame.transform.rotate(pygame.image.load("images\pacman\yellow\open\medium.png"), 90),
-                                                 pygame.transform.rotate(pygame.image.load(r"images\pacman\yellow\close.png"), 90)))
+                self.costumes = itertools.cycle((pygame.transform.rotate(pygame.image.load("images/pacman/yellow/open/medium.png"), 90),
+                                                 pygame.transform.rotate(pygame.image.load(r"images/pacman/yellow/close.png"), 90)))
                 self.rotated = True # чтобы рот и дальше открывался и закрывался, меняем направление только 1 раз.
 
         elif key == K_UP:
             self.vel[1] = -5
             self.vel[0] = 0
             if not self.rotated:
-                self.costumes = itertools.cycle((pygame.image.load("images\pacman\yellow\open\medium.png"),
-                                                pygame.image.load(r"images\pacman\yellow\close.png")))
+                self.costumes = itertools.cycle((pygame.image.load("images/pacman/yellow/open/medium.png"),
+                                                pygame.image.load(r"images/pacman/yellow/close.png")))
                 self.rotated = True # чтобы рот и дальше открывался и закрывался, меняем направление только 1 раз.
 
         elif key == K_RIGHT:
             self.vel[0] = 5
             self.vel[1] = 0
             if not self.rotated:
-                self.costumes = itertools.cycle((pygame.transform.rotate(pygame.image.load("images\pacman\yellow\open\medium.png"), -90),
-                                                 pygame.transform.rotate(pygame.image.load(r"images\pacman\yellow\close.png"), -90)))
+                self.costumes = itertools.cycle((pygame.transform.rotate(pygame.image.load("images/pacman/yellow/open/medium.png"), -90),
+                                                 pygame.transform.rotate(pygame.image.load(r"images/pacman/yellow/close.png"), -90)))
                 self.rotated = True # чтобы рот и дальше открывался и закрывался, меняем направление только 1 раз.
                 
         elif key == K_DOWN:
             self.vel[1] = 5
             self.vel[0] = 0
             if not self.rotated:
-                self.costumes = itertools.cycle((pygame.transform.rotate(pygame.image.load("images\pacman\yellow\open\medium.png"), 180),
-                                                 pygame.transform.rotate(pygame.image.load(r"images\pacman\yellow\close.png"), 180)))
+                self.costumes = itertools.cycle((pygame.transform.rotate(pygame.image.load("images/pacman/yellow/open/medium.png"), 180),
+                                                 pygame.transform.rotate(pygame.image.load(r"images/pacman/yellow/close.png"), 180)))
                 self.rotated = True # чтобы рот и дальше открывался и закрывался, меняем направление только 1 раз.
         pygame.time.wait(10)
 
@@ -104,7 +104,7 @@ class Pacman(pygame.sprite.Sprite):
 class Pellet(pygame.sprite.Sprite):
     def __init__(self, rect=None):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('images\dot\medium.png')
+        self.image = pygame.image.load('images/dot/medium.png')
         self.rect = self.image.get_rect()
         if rect != None:
             self.rect = rect
